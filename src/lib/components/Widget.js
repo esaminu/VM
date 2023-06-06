@@ -74,8 +74,8 @@ export const Widget = React.forwardRef((props, forwardedRef) => {
 
   const cache = useCache();
   let near = useNear();
-  if(near && propsConfig.chainId) {
-    near = near[propsConfig.chainId]
+  if(near && configs?.[0]?.chainId) {
+    near = near[configs?.[0]?.chainId]
   }
   const accountId = useAccountId();
   const [element, setElement] = useState(null);
