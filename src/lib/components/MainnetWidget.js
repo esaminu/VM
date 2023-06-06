@@ -7,8 +7,6 @@ export const NearOverrideContext = createContext(null)
 export const MainnetWidget = (props) => {
 
   return (
-    <NearOverrideContext.Provider value={'mainnet'}>
-      <Widget {...props} />
-    </NearOverrideContext.Provider>
+      <Widget {...props} config={{...(props.config || {}), chainId: 'mainnet'}} />
   );
 }

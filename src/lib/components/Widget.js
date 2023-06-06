@@ -73,11 +73,10 @@ export const Widget = React.forwardRef((props, forwardedRef) => {
   const ethersProviderContext = useContext(EthersProviderContext);
 
   const cache = useCache();
-  // const singletonNear = useNear();
-  // const overrideNear = useContext(NearOverrideContext)
-  // const near = overrideNear || singletonNear;
-  const overrideNear = useContext(NearOverrideContext);
-  const near = useNear()?.[overrideNear]
+  let near = useNear();
+  if(propsConfig.chainId) {
+    near = near[propsConfig.chainId]
+  }
   const accountId = useAccountId();
   const [element, setElement] = useState(null);
 
