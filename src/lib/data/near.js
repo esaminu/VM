@@ -354,7 +354,7 @@ export const useInitNear = singletonHook({}, () => {
 });
 
 const defaultNear = null;
-export const useNear = (networkId) => {
+export const useNear = singletonHook(defaultNear, (networkId) => {
   const [ nears, setNears ] = useState(defaultNear);
   const { nearPromise } = useInitNear();
 
@@ -366,8 +366,10 @@ export const useNear = (networkId) => {
     return nears;
   }
 
+  console.log(nears, '<<< nears', networkId);
+
   return networkId ? nears.find(n => n.config.networkId === networkId) : nears.find(n => n.default);
-};
+});
 
 export const useMainnetNear = () => {
   const [near, setNear] = useState(defaultNear);
