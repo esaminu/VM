@@ -354,7 +354,7 @@ export const useInitNear = singletonHook({}, () => {
     };
 });
 
-const defaultNears = {};
+const defaultNears = [];
 const useMultiNetworkNear = singletonHook(defaultNears, () => {
   const [nears, setNears] = useState(defaultNears);
   const { nearPromise } = useInitNear();
