@@ -367,8 +367,6 @@ export const useNear = singletonHook(defaultNear, () => {
     return nears;
   }
 
-  console.log(nears, '<<< nears', networkId);
-
   return {
     ...nears.find(n => n.default),
     testnet: nears.find(n => n.config.networkId === 'testnet'),
