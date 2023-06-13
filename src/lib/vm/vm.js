@@ -620,6 +620,8 @@ class VmStack {
       return this.executeExpression(child);
     });
 
+    console.log(attributes, '<<<< attributes')
+
     if (customElement) {
       return customElement({ ...attributes, children });
     } else if (customComponent) {
